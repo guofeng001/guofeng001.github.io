@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>我的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://yoursite.com/index.html">
+<meta property="og:site_name" content="我的博客">
+<meta property="og:locale" content="default">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="我的博客">
+  
+    <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">我的博客</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/23/redis/" class="article-date">
+  <time datetime="2019-03-23T01:56:40.000Z" itemprop="datePublished">2019-03-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/23/redis/">Redis入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><p><strong>1.    什么是reids</strong></p>
+<pre><code>Redis是Remote Dictionary Server(远程数据服务)的缩写,**是意大利人开发的一款内存高速缓存数据库,它的数据模型为 key -value,支持丰富的数据结构(类型),可持久化,保证了数据安全**
+</code></pre><h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><ol>
+<li>数据格式key:value</li>
+<li>读写熟读非常快,常用于程序缓存</li>
+</ol>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># 下载 </span><br><span class="line">cd  /usr/local </span><br><span class="line">wget http://download.redis.io/releases/redis-5.0.3.tar.gz </span><br><span class="line"># 解压(加压目录就是安装目录) </span><br><span class="line">tar -zxvf redis-5.0.3.tar.gz </span><br><span class="line"># 安装 </span><br><span class="line">cd  redis-5.0.3 </span><br><span class="line">make </span><br><span class="line">make test </span><br><span class="line">make install </span><br><span class="line"># 测试是否安装成功 cd  /usr/local/redis-5.0.3/conf </span><br><span class="line">#出现图形表示成功</span><br><span class="line">redis-server</span><br></pre></td></tr></table></figure>
+<h3 id="核心配置文件"><a href="#核心配置文件" class="headerlink" title="核心配置文件"></a>核心配置文件</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#配置之前先备份</span></span><br><span class="line">cd /usr/local/redis<span class="number">-5.0</span><span class="number">.3</span>/</span><br><span class="line">cp redis.conf redis.conf.bak</span><br><span class="line"></span><br><span class="line">核心配置文件redis.conf下载到本地改完后在上传,要改的内容如下</span><br><span class="line"><span class="comment">#绑定IP,如果需要远程访问,可以注释掉,或改为本机真实IP地址</span></span><br><span class="line"><span class="comment">#bind 127.0.0.1</span></span><br><span class="line"><span class="comment">#端口默认为6379不用改</span></span><br><span class="line">port <span class="number">6379</span></span><br><span class="line"><span class="comment">#是否守护进程运行(默认是no,改成yes)</span></span><br><span class="line">daemonize yes</span><br><span class="line"><span class="comment">#数据文件(默认)</span></span><br><span class="line">dbfilename dump.rdb</span><br><span class="line"><span class="comment">#数据文件存储路径(改成自己的)</span></span><br><span class="line">dir /data/redis  <span class="comment">#需要手动建立data/redis目录</span></span><br><span class="line"><span class="comment">#日志文件(需要添加)</span></span><br><span class="line">logfile /data/redis/redis-server.log</span><br><span class="line"><span class="comment">#数据库 默认16个</span></span><br><span class="line">database <span class="number">16</span></span><br><span class="line"><span class="comment">#默认是yes,该成no,关闭安全保护模式</span></span><br><span class="line">protected-mode no</span><br></pre></td></tr></table></figure>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#需要制定配置文件启动</span></span><br><span class="line">redis-server /usr/local/redis<span class="number">-5.0</span><span class="number">.3</span>/redis.conf</span><br><span class="line"><span class="comment">#查看是否启动</span></span><br><span class="line">netstat -atunp 或者  ps ajx|grep redis</span><br><span class="line"><span class="comment">#关闭</span></span><br><span class="line">kill 对应的PID</span><br><span class="line"><span class="comment">#连接本地</span></span><br><span class="line">redis-cli</span><br><span class="line"><span class="comment">#测试是否连接成功</span></span><br><span class="line">ping  返回:pong</span><br><span class="line"><span class="comment">#创建用户名</span></span><br><span class="line">set uname aa</span><br><span class="line"><span class="comment">#获取用户名</span></span><br><span class="line">get uname</span><br><span class="line"><span class="comment">#连接远程redis</span></span><br><span class="line">redis-cli -h 远程ip地址 -p <span class="number">6379</span></span><br></pre></td></tr></table></figure>
+<h3 id="操作数据"><a href="#操作数据" class="headerlink" title="操作数据"></a>操作数据</h3><p>redis是key-value的数据结构,每一条数据都是一个建值对,,建的类型是字符串,建不能重复,值得类型分为5种”:</p>
+<ul>
+<li>string类型</li>
+<li>hash哈希</li>
+<li>list 列表(存储的数据类型是字符串,不可以有其他)</li>
+<li>set 集合,(不可重复)</li>
+<li>zset有序集合</li>
+</ul>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><p>增删改查</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#增加一对:</span></span><br><span class="line">set uname aa</span><br><span class="line"><span class="comment">#根据key获取 找不到返回 nil</span></span><br><span class="line">get uname</span><br><span class="line"><span class="comment">#增加设置有效时间 ,时间单位为秒,超过有效期限,自动删除</span></span><br><span class="line">setex uname2 <span class="number">6</span> aaa</span><br><span class="line"><span class="comment">#设置多个值</span></span><br><span class="line">mset a1 a a2 aa a3 aaa</span><br><span class="line"><span class="comment">#获取多个</span></span><br><span class="line">mget a1 a2 a3</span><br><span class="line"><span class="comment">#删除</span></span><br><span class="line"><span class="keyword">del</span> uname</span><br><span class="line"><span class="comment">#按照正则查询</span></span><br><span class="line">keys *</span><br><span class="line">keys a*</span><br><span class="line"><span class="comment">#是否存在</span></span><br><span class="line">exists uname</span><br><span class="line"><span class="comment">#设置有效期限</span></span><br><span class="line">expire uname <span class="number">60</span> <span class="comment">#一分钟后自动删除</span></span><br><span class="line"><span class="comment">#查看变量有效期</span></span><br><span class="line">ttl uname</span><br><span class="line"><span class="comment">#变量值得类型</span></span><br><span class="line">type uname</span><br></pre></td></tr></table></figure>
+<h3 id="哈希类型"><a href="#哈希类型" class="headerlink" title="哈希类型"></a>哈希类型</h3><ul>
+<li>hash用于存储对象,对象的结构为属性,值</li>
+<li>值得类型是字符串string</li>
+</ul>
+<p>增删改查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#设置user的属性name为 zhangsn</span><br><span class="line"> hset user name zhangsan</span><br><span class="line"> #设置多个属性</span><br><span class="line"> hmset user2 name aa age 20 sex nan</span><br><span class="line"> #获取指定建的所有属性</span><br><span class="line"> hkeys user2</span><br><span class="line"> #获取一个属性的值</span><br><span class="line"> hget user2 name</span><br><span class="line"> #获取多个属性的 值</span><br><span class="line"> hmget user2 name age sex</span><br><span class="line"> #获取所有属性的值</span><br><span class="line"> hvals users</span><br></pre></td></tr></table></figure>
+<h3 id="list类型"><a href="#list类型" class="headerlink" title="list类型"></a>list类型</h3><ul>
+<li>列表的元素类型为string</li>
+<li>按照插入顺序排序</li>
+</ul>
+<p><strong>增删改查</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">#从左侧插入数据</span><br><span class="line">lpush aa a1 a2 a3 a4</span><br><span class="line">#从右侧插入数据</span><br><span class="line">rpush aa a4 a5</span><br><span class="line">#在指定位置插入数据</span><br><span class="line">linsert aa before a3 a6</span><br><span class="line"></span><br><span class="line">#获取列表内的元素</span><br><span class="line">lrange aa 0 -1</span><br><span class="line">#索引从左侧开始</span><br><span class="line">lset aa 3 a8</span><br><span class="line">#删除指定元素</span><br><span class="line">1.把列表中count次出现的值元素移除</span><br><span class="line">2.count&gt;0 从头到尾</span><br><span class="line">3.count&lt;0 从尾往头移除</span><br><span class="line">4.count =0 移除所有</span><br><span class="line">lrem key count value</span><br></pre></td></tr></table></figure>
+<h3 id="set类型"><a href="#set类型" class="headerlink" title="set类型"></a>set类型</h3><ul>
+<li>无序集合</li>
+<li>元素为string类型</li>
+<li>元素具有唯一性,不重复</li>
+<li>说明:对于集合没有修改操作</li>
+</ul>
+<p>增删改查</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#添加元素 sadd key member1 member2...</span><br><span class="line">sadd  user zhangsab lisi wangwu</span><br><span class="line">#获取集合中的所有元素</span><br><span class="line">semmbers user</span><br><span class="line">#删除指定元素</span><br><span class="line">srem user zhangsab</span><br></pre></td></tr></table></figure>
+<h3 id="zset类型"><a href="#zset类型" class="headerlink" title="zset类型"></a>zset类型</h3><ul>
+<li>sorted set ,有序集合</li>
+<li>元素为string类型</li>
+<li>元素具有唯一性,不重复</li>
+<li>每个元素都会关联一个double 畸形的score,表示权重,通过权重将元素从小到大排序</li>
+<li>说明:没有修改操作</li>
+</ul>
+<p><strong>增删改查</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#添加  zadd key score1 memeber1 score2 memeber2</span><br><span class="line">zadd user 4 b 5 c 6 d 3 e</span><br><span class="line">#获取</span><br><span class="line">1.返回固定范围内的元素</span><br><span class="line">2.start stop 为元素的下标索引</span><br><span class="line">3.索引从左侧开始,第一个元素为0</span><br><span class="line">4.索引可以是负数,表示从尾部开始计数</span><br><span class="line"></span><br><span class="line">zrange user 0 -1</span><br><span class="line">#返回score值在min和max之间的成员</span><br><span class="line">zrangebyscore user 4 5</span><br><span class="line">#返回menber的score值</span><br><span class="line">zscore user b</span><br><span class="line"></span><br><span class="line">#删除</span><br><span class="line"></span><br><span class="line">删除指定元素</span><br><span class="line">zrem user c</span><br><span class="line"></span><br><span class="line">删除权重在指定范围内的元素</span><br><span class="line">zremrangebyscore user 5 6</span><br></pre></td></tr></table></figure>
+<h3 id="python操作redis"><a href="#python操作redis" class="headerlink" title="python操作redis"></a>python操作redis</h3><ul>
+<li><p>按照redis 模块</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install redis</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#导入模块</span></span><br><span class="line"><span class="keyword">from</span> redis <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">    	<span class="comment">#创建StrictRedis对象</span></span><br><span class="line">		<span class="comment">#通过init创建对象,指定参数host(如果是本地,默认localhost),port(默认			6397)	与#db(默认0)</span></span><br><span class="line">		sr = StricRedis(host=<span class="string">'IP'</span>,port=<span class="number">6379</span>,db=<span class="number">0</span>)</span><br><span class="line">		<span class="comment">#简写</span></span><br><span class="line">		sr = StrictRedis()</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#添加一个key为name,value为zhangsan</span></span><br><span class="line">        res = sr.set(<span class="string">'name'</span>,<span class="string">'zhangsan'</span>)</span><br><span class="line">        print(res)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#获取name的值</span></span><br><span class="line">        res = sr.get(<span class="string">'name'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#修改name对应的值为lisi</span></span><br><span class="line">        res= sr.set(<span class="string">'name'</span>,<span class="string">'lisi'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#删除</span></span><br><span class="line">        res = sr.sr.delete(<span class="string">'name'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#删除多个键值</span></span><br><span class="line">        </span><br><span class="line">        res = sr.delete(<span class="string">'a1'</span>,<span class="string">'a2'</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="comment">#获取数据库中塑所有的键</span></span><br><span class="line">        </span><br><span class="line">        res = sr.keys()</span><br><span class="line">        print(res)</span><br><span class="line">     excepe Exception <span class="keyword">as</span> e:</span><br><span class="line">        print(e)</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/23/redis/" data-id="cjtkvtrrm0001asrsyjoi2q5g" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/03/22/hello-world/" class="article-date">
+  <time datetime="2019-03-22T08:05:37.092Z" itemprop="datePublished">2019-03-22</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/03/22/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/03/22/hello-world/" data-id="cjtkvtrre0000asrspqnppt9v" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">March 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/03/23/redis/">Redis入门</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/22/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>

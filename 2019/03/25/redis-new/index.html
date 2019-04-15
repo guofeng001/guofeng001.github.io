@@ -5,18 +5,18 @@
   
 
   
-  <title>Redis入门 | 我的博客</title>
+  <title>我的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="Redis1.    什么是reids Redis是Remote Dictionary Server(远程数据服务)的缩写,**是意大利人开发的一款内存高速缓存数据库,它的数据模型为 key -value,支持丰富的数据结构(类型),可持久化,保证了数据安全** 简介 数据格式key:value 读写熟读非常快,常用于程序缓存  安装12345678910111213# 下载 cd  /usr/l">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Redis入门">
-<meta property="og:url" content="http://yoursite.com/2019/03/23/redis/index.html">
+<meta property="og:title" content="我的博客">
+<meta property="og:url" content="http://yoursite.com/2019/03/25/redis-new/index.html">
 <meta property="og:site_name" content="我的博客">
 <meta property="og:description" content="Redis1.    什么是reids Redis是Remote Dictionary Server(远程数据服务)的缩写,**是意大利人开发的一款内存高速缓存数据库,它的数据模型为 key -value,支持丰富的数据结构(类型),可持久化,保证了数据安全** 简介 数据格式key:value 读写熟读非常快,常用于程序缓存  安装12345678910111213# 下载 cd  /usr/l">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-23T01:59:34.092Z">
+<meta property="og:updated_time" content="2019-03-25T14:59:06.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Redis入门">
+<meta name="twitter:title" content="我的博客">
 <meta name="twitter:description" content="Redis1.    什么是reids Redis是Remote Dictionary Server(远程数据服务)的缩写,**是意大利人开发的一款内存高速缓存数据库,它的数据模型为 key -value,支持丰富的数据结构(类型),可持久化,保证了数据安全** 简介 数据格式key:value 读写熟读非常快,常用于程序缓存  安装12345678910111213# 下载 cd  /usr/l">
   
     <link rel="alternate" href="/atom.xml" title="我的博客" type="application/atom+xml">
@@ -64,25 +64,15 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-redis" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-redis-new" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2019/03/23/redis/" class="article-date">
-  <time datetime="2019-03-23T01:56:40.000Z" itemprop="datePublished">2019-03-23</time>
+    <a href="/2019/03/25/redis-new/" class="article-date">
+  <time datetime="2019-03-25T14:59:06.868Z" itemprop="datePublished">2019-03-25</time>
 </a>
     
   </div>
   <div class="article-inner">
     
-    
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      Redis入门
-    </h1>
-  
-
-      </header>
     
     <div class="article-entry" itemprop="articleBody">
       
@@ -110,7 +100,7 @@
 <li>值得类型是字符串string</li>
 </ul>
 <p>增删改查</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#设置user的属性name为 zhangsn</span><br><span class="line"> hset user name zhangsan</span><br><span class="line"> #设置多个属性</span><br><span class="line"> hmset user2 name aa age 20 sex nan</span><br><span class="line"> #获取指定建的所有属性</span><br><span class="line"> hkeys user2</span><br><span class="line"> #获取一个属性的值</span><br><span class="line"> hget user2 name</span><br><span class="line"> #获取多个属性的 值</span><br><span class="line"> hmget user2 name age sex</span><br><span class="line"> #获取所有属性的值</span><br><span class="line"> hvals users</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">#设置user的属性name为 zhangsn</span><br><span class="line"> hset user name zhangsan</span><br><span class="line"> #设置多个属性</span><br><span class="line"> hmest user2 name aa age 20 sex nan</span><br><span class="line"> #获取指定建的所有属性</span><br><span class="line"> hkeys user2</span><br><span class="line"> #获取一个属性的值</span><br><span class="line"> hget user2 name</span><br><span class="line"> #获取多个属性的 值</span><br><span class="line"> hmget user2 name age sex</span><br><span class="line"> #获取所有属性的值</span><br><span class="line"> hvals users</span><br></pre></td></tr></table></figure>
 <h3 id="list类型"><a href="#list类型" class="headerlink" title="list类型"></a>list类型</h3><ul>
 <li>列表的元素类型为string</li>
 <li>按照插入顺序排序</li>
@@ -125,7 +115,7 @@
 </ul>
 <p>增删改查</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#添加元素 sadd key member1 member2...</span><br><span class="line">sadd  user zhangsab lisi wangwu</span><br><span class="line">#获取集合中的所有元素</span><br><span class="line">semmbers user</span><br><span class="line">#删除指定元素</span><br><span class="line">srem user zhangsab</span><br></pre></td></tr></table></figure>
-<h3 id="zset类型"><a href="#zset类型" class="headerlink" title="zset类型"></a>zset类型</h3><ul>
+<h3 id="zste类型"><a href="#zste类型" class="headerlink" title="zste类型"></a>zste类型</h3><ul>
 <li>sorted set ,有序集合</li>
 <li>元素为string类型</li>
 <li>元素具有唯一性,不重复</li>
@@ -133,7 +123,7 @@
 <li>说明:没有修改操作</li>
 </ul>
 <p><strong>增删改查</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#添加  zadd key score1 memeber1 score2 memeber2</span><br><span class="line">zadd user 4 b 5 c 6 d 3 e</span><br><span class="line">#获取</span><br><span class="line">1.返回固定范围内的元素</span><br><span class="line">2.start stop 为元素的下标索引</span><br><span class="line">3.索引从左侧开始,第一个元素为0</span><br><span class="line">4.索引可以是负数,表示从尾部开始计数</span><br><span class="line"></span><br><span class="line">zrange user 0 -1</span><br><span class="line">#返回score值在min和max之间的成员</span><br><span class="line">zrangebyscore user 4 5</span><br><span class="line">#返回menber的score值</span><br><span class="line">zscore user b</span><br><span class="line"></span><br><span class="line">#删除</span><br><span class="line"></span><br><span class="line">删除指定元素</span><br><span class="line">zrem user c</span><br><span class="line"></span><br><span class="line">删除权重在指定范围内的元素</span><br><span class="line">zremrangebyscore user 5 6</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#添加  zadd key score1 memeber1 score2 memeber2</span><br><span class="line">zadd user 4 b 5 c 6 d 3 e</span><br><span class="line">#获取</span><br><span class="line">1.返回固定范围内的元素</span><br><span class="line">2.start stop 为元素的下标索引</span><br><span class="line">3.索引从左侧开始,第一个元素为0</span><br><span class="line">4.索引可以是负数,表示从尾部开始计数</span><br><span class="line"></span><br><span class="line">zrange user 0 -1</span><br><span class="line">#返回score值在min和max之间的成员</span><br><span class="line">zrangebyscore user 4 5</span><br><span class="line">#返回menber的score值</span><br><span class="line">zscore user b</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">#删除</span><br><span class="line"></span><br><span class="line">删除指定元素</span><br><span class="line">zrem user c</span><br><span class="line"></span><br><span class="line">删除权重在指定范围内的元素</span><br><span class="line">zremrangebyscore user 5 6</span><br></pre></td></tr></table></figure>
 <h3 id="python操作redis"><a href="#python操作redis" class="headerlink" title="python操作redis"></a>python操作redis</h3><ul>
 <li><p>按照redis 模块</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install redis</span><br></pre></td></tr></table></figure>
@@ -144,7 +134,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/03/23/redis/" data-id="cjui5mp9d0003ksrsxgq1mr1b" class="article-share-link">Share</a>
+      <a data-url="http://yoursite.com/2019/03/25/redis-new/" data-id="cjui5mp990001ksrsoj9wnjkr" class="article-share-link">Share</a>
       
       
     </footer>
@@ -153,19 +143,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2019/03/25/redis-new/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/04/15/mysql/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          (no title)
+          mysql
         
       </div>
     </a>
   
   
-    <a href="/2019/03/22/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2019/03/23/redis/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Hello World</div>
+      <div class="article-nav-title">Redis入门</div>
     </a>
   
 </nav>
